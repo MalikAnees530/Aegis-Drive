@@ -1,20 +1,36 @@
-# Configuration for actions/labeler
+# Configuration for actions/labeler@v5
+#
+# v5 replaced v4's bare glob lists with an explicit match-rule structure.
+# Each label maps to a list of match objects; `any-glob-to-any-file` applies
+# the label when ANY listed glob matches ANY changed file in the PR.
+# See https://github.com/actions/labeler#create-labeleryml
 
 android:
-- 'app/**/*'
-- 'build.gradle.kts'
-- 'settings.gradle.kts'
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'app/**/*'
+          - 'build.gradle.kts'
+          - 'settings.gradle.kts'
+          - 'gradle/**/*'
 
 documentation:
-- '**/*.md'
-- 'docs/**/*'
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/*.md'
+          - 'docs/**/*'
 
 github:
-- '.github/**/*'
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/**/*'
 
 ai-ml:
-- 'app/src/main/assets/*.tflite'
-- 'app/src/main/assets/*.task'
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'app/src/main/assets/*.tflite'
+          - 'app/src/main/assets/*.task'
 
 resources:
-- 'app/src/main/res/**/*'
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'app/src/main/res/**/*'

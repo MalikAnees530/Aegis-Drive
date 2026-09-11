@@ -34,9 +34,39 @@ jobs:
 
       # Secrets are passed through `env:` and never interpolated directly into
       # the shell script, so they cannot be expanded into the command line.
-      - name: Inject configuration from secrets
+      #
+      # Dependabot pull requests read from a separate secret store and cannot
+      # see these values, so the secrets arrive empty there. Rather than fail
+      # every dependency bump, fall back to a non-functional placeholder that
+      # is still structurally valid, so the bump is at least compile-checked.
+      - name: Inject configuration
         run: |
-          printf '%s' "$GOOGLE_SERVICES_JSON" > app/google-services.json
+          if [ -n "$GOOGLE_SERVICES_JSON" ]; then
+            printf '%s' "$GOOGLE_SERVICES_JSON" > app/google-services.json
+          else
+            echo "::warning::GOOGLE_SERVICES_JSON is unavailable (expected on Dependabot PRs). Using a placeholder; Firebase-backed behaviour is NOT verified by this run."
+            cat > app/google-services.json <<'PLACEHOLDER'
+          {
+            "project_info": {
+              "project_number": "000000000000",
+              "project_id": "aegis-drive-ci-placeholder",
+              "storage_bucket": "aegis-drive-ci-placeholder.appspot.com"
+            },
+            "client": [
+              {
+                "client_info": {
+                  "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
+                  "android_client_info": { "package_name": "com.malik.aegisdrive" }
+                },
+                "oauth_client": [],
+                "api_key": [ { "current_key": "ci-placeholder-not-a-real-key" } ],
+                "services": { "appinvite_service": { "other_platform_oauth_client": [] } }
+              }
+            ],
+            "configuration_version": "1"
+          }
+          PLACEHOLDER
+          fi
           echo "GROK_API_KEY=$GROK_API_KEY" > local.properties
         env:
           GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
