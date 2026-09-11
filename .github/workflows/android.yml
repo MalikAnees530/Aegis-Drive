@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+# Least privilege: this workflow only ever needs to read the code.
+permissions:
+  contents: read
+
 jobs:
   build:
     name: Build & Test
@@ -28,12 +32,15 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      # Secrets are passed through `env:` and never interpolated directly into
+      # the shell script, so they cannot be expanded into the command line.
       - name: Inject configuration from secrets
         run: |
-          echo "$GOOGLE_SERVICES_JSON" > app/google-services.json
-          echo "GROK_API_KEY=${{ secrets.GROK_API_KEY }}" > local.properties
+          printf '%s' "$GOOGLE_SERVICES_JSON" > app/google-services.json
+          echo "GROK_API_KEY=$GROK_API_KEY" > local.properties
         env:
           GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
 
       - name: Build debug APK
         run: ./gradlew assembleDebug --stacktrace

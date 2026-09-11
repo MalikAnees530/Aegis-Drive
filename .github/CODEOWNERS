@@ -1,2 +1,13 @@
-# Absolute Codebase Ownership (Single Source of Truth)
-* @MalikAnees530
+# ─────────────────────────────────────────────────────────────
+#  Aegis Drive — Shared Code Ownership
+#
+#  Every member of the project team is an equal owner of this
+#  codebase. Any owner may review, approve and merge changes to
+#  any part of the repository.
+#
+#  Note: CODEOWNERS entries only take effect for accounts that
+#  have accepted their repository invitation.
+# ─────────────────────────────────────────────────────────────
+
+# The whole codebase is owned collectively by the project team.
+*   @MalikAnees530 @mudassirmukhtar10 @niaz2016 @FrnazAkbar

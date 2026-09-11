@@ -72,18 +72,26 @@ Aegis Drive follows a **dark-first "Premium Minimal"** design language — spaci
 
 ## 🚀 Getting Started
 
-**Prerequisites:** Android Studio (latest), JDK 11+, an Android device/emulator on **API 26+**.
+**Prerequisites:** Android Studio (Hedgehog or newer), **JDK 17+** — required by Android Gradle Plugin 8.3 — and an Android device/emulator on **API 26+**.
+
+> The app itself compiles to **Java 11 bytecode** (`jvmTarget = 11`); JDK 17+ is only needed to *run* the Gradle build.
 
 ```bash
 git clone https://github.com/MalikAnees530/Aegis-Drive.git
 ```
 
-1. **Add `local.properties`** in the project root.
-2. **Configure your Groq API key:**
+1. **Create your local config** by copying the tracked template:
+   ```bash
+   cp local.properties.example local.properties
+   ```
+2. **Fill in your own values** in `local.properties` — the Android SDK path and your Groq API key:
    ```properties
+   sdk.dir=/path/to/your/Android/Sdk
    GROK_API_KEY=gsk_your_key_here
    ```
-3. **Add `google-services.json`** (Firebase) to `app/`.
+3. **Add your own `google-services.json`** (from the Firebase console) to `app/`.
+
+   Both files are gitignored and must never be committed.
 4. **Sync Gradle** in Android Studio to generate `BuildConfig`, then run:
    ```bash
    ./gradlew assembleDebug
@@ -95,7 +103,7 @@ git clone https://github.com/MalikAnees530/Aegis-Drive.git
 
 | Layer | Technology |
 | :--- | :--- |
-| **Language** | Kotlin · JDK 11 |
+| **Language** | Kotlin 1.9.24 · Java 11 bytecode (JDK 17+ to build) |
 | **UI** | Material 3 (XML Views) · Navigation Component · dark-first design tokens |
 | **Architecture** | MVVM + Repository pattern |
 | **On-device AI** | TensorFlow Lite · MediaPipe Vision Tasks |
@@ -108,16 +116,18 @@ git clone https://github.com/MalikAnees530/Aegis-Drive.git
 
 ## 👥 Team
 
-| Role | Member |
-| :--- | :--- |
-| **Team Leader** | Malik Anees Ahmed |
-| **FYP Group Member** | Mudassir Mukhtar |
-| **FYP Group Member** | M. Niaz |
+Aegis Drive is a collaborative final-year project. **Every team member is an equal maintainer** with full write access — anyone may branch, commit, review and merge.
 
-> Aegis Drive was designed and built end-to-end by **Malik Anees Ahmed**, who is the sole author and owner of the codebase. Mudassir Mukhtar and M. Niaz are final-year-project group members.
+| Role | Member | GitHub |
+| :--- | :--- | :--- |
+| **Project Supervisor** | Dr. Farnaz Akbar | [@FrnazAkbar](https://github.com/FrnazAkbar) |
+| **Team Lead & Maintainer** | Malik Anees Ahmed | [@MalikAnees530](https://github.com/MalikAnees530) |
+| **Maintainer** | Mudassir Mukhtar Kiyani | [@mudassirmukhtar10](https://github.com/mudassirmukhtar10) |
+| **Maintainer** | Muhammad Niaz | [@niaz2016](https://github.com/niaz2016) |
 
-**Supervisor:** Dr. Farnaz Akbar
 **Institution:** National University of Modern Languages (NUML), Islamabad
+
+See **[CONTRIBUTING.md](CONTRIBUTING.md)** for the team workflow and coding standards.
 
 ---
 
