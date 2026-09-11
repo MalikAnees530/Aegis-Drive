@@ -1,0 +1,88 @@
+# ─────────────────────────────────────────────────────────────
+#  SECRETS & CREDENTIALS — never commit these
+# ─────────────────────────────────────────────────────────────
+# Groq/Grok API key + local SDK path
+local.properties
+
+# Firebase config (contains project API key) — anywhere in the tree
+google-services.json
+**/google-services.json
+GoogleService-Info.plist
+
+# Signing keystores & certificates
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+*.cer
+*.der
+keystore.properties
+signing.properties
+
+# Environment / secret property files
+.env
+.env.*
+secrets.properties
+secrets.xml
+apikeys.properties
+service-account*.json
+*-credentials.json
+
+# ─────────────────────────────────────────────────────────────
+#  BUILD OUTPUT
+# ─────────────────────────────────────────────────────────────
+build/
+/build/
+app/build/
+.gradle/
+.cxx/
+.externalNativeBuild/
+/captures/
+app/release/
+app/debug/
+*.apk
+*.aab
+*.aar
+*.ap_
+*.dex
+*.class
+local.log
+
+# ─────────────────────────────────────────────────────────────
+#  IDE / EDITOR
+# ─────────────────────────────────────────────────────────────
+.idea/
+*.iml
+.kotlin/
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# ─────────────────────────────────────────────────────────────
+#  PYTHON (model training scratch)
+# ─────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# ─────────────────────────────────────────────────────────────
+#  PROJECT-LOCAL WORKING NOTES (not part of the shipped project)
+# ─────────────────────────────────────────────────────────────
+/md/
+.superpowers/
+/Errors and problem/
+/Github images/
+*.rar
+*.zip
+
+# Backup / scratch source files
+*_backup.kt
+*_backup.xml
+MonitorFragment_backup.kt
+FaceOverlayView_backup.kt
+fragment_monitor_backup.xml
+FaceLandmarkerHelper_backup.kt

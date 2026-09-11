@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Android 12+ Native Splash Theme -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/bg_navy</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_aegis_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.AegisDrive</item>
+    </style>
+
+    <!-- ══ AEGISDRIVE · PREMIUM MINIMAL — LIGHT ══ -->
+    <style name="Theme.AegisDrive" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Brand accent -->
+        <item name="colorPrimary">@color/aegis_blue</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/accent_soft</item>
+        <item name="colorOnPrimaryContainer">@color/text_primary</item>
+        <item name="colorSecondary">@color/text_secondary</item>
+
+        <!-- Background & surface (token-driven) -->
+        <item name="android:windowBackground">@color/bg_deepest</item>
+        <item name="android:colorBackground">@color/bg_deepest</item>
+        <item name="colorSurface">@color/bg_surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/bg_elevated</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        <item name="colorOutline">@color/border_subtle</item>
+        <item name="colorOutlineVariant">@color/border_subtle</item>
+        <item name="colorError">@color/status_danger</item>
+
+        <!-- System bars -->
+        <item name="android:statusBarColor">@color/bg_deepest</item>
+        <item name="android:navigationBarColor">@color/bg_deepest</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+
+        <!-- Global typography: Inter body; headings opt into Space Grotesk -->
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="fontFamily">@font/inter_regular</item>
+
+        <!-- Global activity transition motion -->
+        <item name="android:windowAnimationStyle">@style/Animation.Aegis.Activity</item>
+
+        <!-- Component defaults -->
+        <item name="materialCardViewStyle">@style/AegisDrive.CardView</item>
+        <item name="textInputStyle">@style/AegisDrive.TextInputLayout</item>
+    </style>
+
+    <style name="CustomDialogTheme" parent="Theme.Material3.DayNight.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+    </style>
+</resources>

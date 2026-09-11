@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Aegis Edge Navigation</title>
+    <!-- 🔌 OFFLINE-FIRST: MapLibre GL JS is bundled locally (BSD, 100% free) so the map
+         engine always loads with zero network. Tiles come from the WebView HTTP cache. -->
+    <link href="vendor/maplibre-gl.css" rel="stylesheet" />
+    <script src="vendor/maplibre-gl.js"></script>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body class="state-1">
+    <div id="map"></div>
+    
+    <!-- 🚀 PREMIUM SEARCH COMMAND CENTER -->
+    <div id="searchContainer">
+        <div class="search-card">
+            <button class="icon-btn-voice" id="btnVoice">🎙️</button>
+            <input type="search" id="etSearch" placeholder="Search destination..." autocomplete="off">
+            <div class="search-actions-right">
+                <button class="icon-btn-plain" id="btnSearchSubmit">🔍</button>
+            </div>
+        </div>
+        <div id="suggestions" class="suggestions-list hidden"></div>
+        
+        <!-- 🚀 PROMINENT HOME MENU -->
+        <div id="homeMenu" class="glass-card menu-card hidden">
+            <div class="menu-item primary-action" id="menuNavigateHome">🚀 Start Drive to Home</div>
+            <div class="menu-divider"></div>
+            <div class="menu-item secondary-action" id="menuEditHome">✏️ Change Home Location</div>
+        </div>
+    </div>
+
+    <!-- 🚀 ACTION FABS (STACKED RIGHT) -->
+    <div class="fabs-container">
+        <button id="btnHome" class="fab-action secondary-fab">🏠</button>
+        <button id="btnRecenter" class="fab-action primary-fab">📍</button>
+    </div>
+
+    <!-- 🚀 EDIT MODE OVERLAY -->
+    <div id="editOverlay" class="edit-overlay hidden">
+        <div class="overlay-content">
+            <p>Select your new Home on map</p>
+            <button id="btnCancelEdit" class="btn-cancel-small">CANCEL</button>
+        </div>
+    </div>
+
+    <!-- 🚀 NOTIFICATION ENGINE -->
+    <div id="customToast" class="custom-toast hidden">Notification</div>
+    
+    <!-- 🚀 ROUTING CARD -->
+    <div class="glass-card routing-card top-right hidden" id="routingCard">
+        <div class="route-details">
+            <div class="route-header">
+                <span id="navStreet">Destination</span>
+                <button id="btnCloseRouting" class="btn-close-small">✕</button>
+            </div>
+            <div class="time-dist">
+                <span id="navTime">-- min</span>
+                <span id="navDistance">-- km</span>
+            </div>
+            <div class="route-actions">
+                <button id="btnDirections" class="btn-action secondary">🛣️ Directions</button>
+                <button id="btnStartDrive" class="btn-action primary">🚀 START</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🚀 PREMIUM NAVIGATION DASHBOARD -->
+    <div class="nav-dashboard hidden" id="navDashboard">
+        <div class="nav-upper-bento">
+            <div class="turn-container">
+                <div class="turn-icon-bg" id="nextTurnIcon">⬆️</div>
+                <div class="turn-info">
+                    <span id="nextStreetName">Toward Destination</span>
+                    <span id="distanceToTurn">Calculating...</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-lower-bento">
+            <button id="btnStopNav" class="btn-round-danger">✕</button>
+            <div class="eta-stack">
+                <span id="navTimeCountdown" class="eta-minutes">-- min</span>
+                <div class="eta-detail-row">
+                    <span id="navDistancePrecise">-- km</span>
+                    <span class="eta-sep"></span>
+                    <span id="navArrivalTime">--:--</span>
+                </div>
+            </div>
+            <button id="btnRecenterNav" class="btn-round-recenter">📍</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

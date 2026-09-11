@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Aegis Drive</string>
+    <string name="aegis_drive">AEGIS DRIVE</string>
+    <string name="sensory_intelligence">SENSORY INTELLIGENCE</string>
+    <string name="eye_openness_default">Eye Openness: 0.00</string>
+    <string name="mouth_gap_default">Mouth Gap: 0.00</string>
+    <string name="offline">OFFLINE</string>
+    <string name="live">LIVE</string>
+    <string name="default_timer">00:00:00</string>
+    <string name="default_fps">0 FPS</string>
+    <string name="danger_eyes_closed">DANGER: EYES CLOSED</string>
+    <string name="standby">● STANDBY</string>
+    <string name="secure">● SECURE</string>
+    <string name="mute_alarm">🔕 MUTE ALARM</string>
+    <string name="ai_engine">AI ENGINE</string>
+    <string name="waiting">Waiting...</string>
+    <string name="eye_state">EYE STATE</string>
+    <string name="alerts">ALERTS</string>
+    <string name="stable">Stable</string>
+    <string name="telemetry_safety_index">DRIVING SAFETY SCORE</string>
+    <string name="full_score">100%</string>
+    <string name="begin_monitoring">BEGIN MONITORING</string>
+    <string name="stop_monitoring">STOP MONITORING</string>
+
+    <!--
+        Family Notification: body of the automated SMS sent to the emergency contact.
+
+        MEASURED COST: 157 characters = 159 GSM-7 septets. Limit for a single SMS is 160 septets,
+        so this fits in ONE message with only 1 septet of headroom.
+
+        WARNING - two separate traps when editing this string:
+        1. '[' and ']' are GSM-7 EXTENSION characters costing 2 septets each, not 1. That is why
+           157 characters cost 159 septets. Adding even two more plain characters splits this into
+           2 billed parts.
+        2. Any emoji, curly quote, em dash or accented letter forces the entire body to UCS-2,
+           collapsing the limit from 160 to 70 septets and turning this into 3 parts.
+        Keep edits inside the GSM-7 basic alphabet and re-measure septets, not characters.
+    -->
+    <!--
+      MUST stay GSM-7 and under 160 characters = ONE SMS segment.
+      Every character here is plain ASCII on purpose. A single emoji (a shield, a warning sign)
+      switches the whole message to UCS-2, which drops the segment size from 160 to 67 characters
+      and turns this one message into THREE billed segments on every emergency, forever.
+      The branding is therefore carried by the uppercase header, not by an icon.
+
+      Note the SENDER NAME is NOT settable from the app: SmsManager always sends from the SIM's own
+      number, and the recipient's phone displays whatever name it has saved for it. An alphanumeric
+      sender ID would require a paid SMS gateway, which this project deliberately does not use.
+      This header is what makes the message identifiably from Aegis Drive.
+    -->
+    <string name="family_alert_message">AEGIS DRIVE - SAFETY ALERT: The driver has triggered critical drowsiness alerts and may be falling asleep. Please contact them immediately.</string>
+
+    <!-- Family Notification: failure / permission feedback (plain Toast, never AegisNotify) -->
+    <string name="sms_send_failed">Failed to send emergency SMS</string>
+    <string name="sms_permission_required">SMS permission is required to alert your emergency contact</string>
+    <string name="sms_permission_revoked">SMS Permission revoked. Cannot send alert.</string>
+    <string name="sms_no_contact_saved">No emergency contact saved</string>
+    <string name="sms_contact_save_failed">Could not save emergency contact. Please try again.</string>
+    <!-- Asynchronous radio/SIM rejection reported back via the sent-PendingIntent -->
+    <string name="sms_failed_async">SMS Failed: Check network or Default SIM settings.</string>
+</resources>

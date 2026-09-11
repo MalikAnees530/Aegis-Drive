@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <!--
+        This is the Navigation Graph.
+        It connects each Bottom Nav tab to its Fragment (screen).
+        startDestination = which screen shows first when app opens.
+    -->
+
+    <!-- HOME tab → HomeFragment -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.malik.aegisdrive.HomeFragment"
+        android:label="Home" />
+
+    <!-- NAVIGATE tab → NavigateFragment -->
+    <fragment
+        android:id="@+id/navigateFragment"
+        android:name="com.malik.aegisdrive.NavigateFragment"
+        android:label="Navigate" />
+
+    <!-- MONITOR tab → MonitorFragment -->
+    <fragment
+        android:id="@+id/monitorFragment"
+        android:name="com.malik.aegisdrive.MonitorFragment"
+        android:label="Monitor" />
+
+    <!-- AI CHAT tab → ChatFragment -->
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.malik.aegisdrive.ChatFragment"
+        android:label="AI Chat" />
+
+</navigation>

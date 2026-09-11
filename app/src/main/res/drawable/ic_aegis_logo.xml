@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Standardized Shield Shape (Aegis) -->
+    <path
+        android:pathData="M54,18 L24,30 V60 C24,80 54,90 54,90 C54,90 84,80 84,60 V30 L54,18 Z"
+        android:fillColor="#38BDF8"/>
+        
+    <!-- Inner Core (Eye of Aegis) -->
+    <path
+        android:pathData="M54,42 C46.2,42 40,48.2 40,56 C40,63.8 46.2,70 54,70 C61.8,70 68,63.8 68,56 C68,48.2 61.8,42 54,42 Z"
+        android:fillColor="#0F172A"/>
+        
+    <!-- Pupil Core (Stable Geometry) -->
+    <path
+        android:pathData="M54,50 C50.7,50 48,52.7 48,56 C48,59.3 50.7,62 54,62 C57.3,62 60,59.3 60,56 C60,52.7 57.3,50 54,50 Z"
+        android:fillColor="#38BDF8"/>
+</vector>

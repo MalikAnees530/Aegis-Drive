@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sheetRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/windowBackground"
+    android:orientation="vertical"
+    android:padding="@dimen/space_24">
+
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_pill_neutral"
+        android:layout_marginBottom="@dimen/space_24" />
+
+    <TextView
+        android:id="@+id/tvSheetTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Session Intelligence"
+        android:textAppearance="@style/TextAppearance.Aegis.H2" />
+
+    <TextView
+        android:id="@+id/tvSheetDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Loading session data..."
+        android:textAppearance="@style/TextAppearance.Aegis.BodyMuted"
+        android:layout_marginTop="@dimen/space_4" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_20"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="@dimen/space_6"
+            app:cardBackgroundColor="@color/bg_surface"
+            app:cardCornerRadius="@dimen/radius_lg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="@dimen/stroke_hairline">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="@dimen/space_16">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="SAFETY SCORE" android:textAppearance="@style/TextAppearance.Aegis.Label" />
+                <TextView android:id="@+id/tvSheetScore" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="--%" android:textColor="@color/status_safe" android:fontFamily="@font/space_grotesk_bold" android:textSize="24sp" android:layout_marginTop="@dimen/space_4" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="@dimen/space_6"
+            app:cardBackgroundColor="@color/bg_surface"
+            app:cardCornerRadius="@dimen/radius_lg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="@dimen/stroke_hairline">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="@dimen/space_16">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="DRIVE TIME" android:textAppearance="@style/TextAppearance.Aegis.Label" />
+                <TextView android:id="@+id/tvSheetDuration" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="--m --s" android:textColor="?attr/colorOnSurface" android:fontFamily="@font/space_grotesk_bold" android:textSize="24sp" android:layout_marginTop="@dimen/space_4" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="@dimen/space_6"
+            app:cardBackgroundColor="@color/bg_surface"
+            app:cardCornerRadius="@dimen/radius_lg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="@dimen/stroke_hairline">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="@dimen/space_16">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ALERTS FIRED" android:textAppearance="@style/TextAppearance.Aegis.Label" />
+                <TextView android:id="@+id/tvSheetAlerts" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="0" android:textColor="@color/status_danger" android:fontFamily="@font/space_grotesk_bold" android:textSize="24sp" android:layout_marginTop="@dimen/space_4" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="@dimen/space_6"
+            app:cardBackgroundColor="@color/bg_surface"
+            app:cardCornerRadius="@dimen/radius_lg"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="@dimen/stroke_hairline">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="@dimen/space_16">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="EST. FOCUS" android:textAppearance="@style/TextAppearance.Aegis.Label" />
+                <TextView android:id="@+id/tvSheetFocus" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="--%" android:textColor="@color/accent_primary" android:fontFamily="@font/space_grotesk_bold" android:textSize="24sp" android:layout_marginTop="@dimen/space_4" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </GridLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCloseSheet"
+        style="@style/Aegis.Button.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="@dimen/space_20"
+        android:text="Close Analysis" />
+</LinearLayout>

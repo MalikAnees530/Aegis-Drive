@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============================================ -->
+    <!-- AEGISDRIVE — PREMIUM MINIMAL · DARK PALETTE   -->
+    <!-- (primary experience — dark-first)             -->
+    <!-- ============================================ -->
+
+    <!-- === BACKGROUND / SURFACE === -->
+    <color name="bg_deepest">#0A0E14</color>
+    <color name="bg_surface">#10151E</color>
+    <color name="bg_elevated">#161C27</color>
+    <color name="bg_navy">#0A0E14</color>
+    <color name="bg_navy_light">#10151E</color>
+    <color name="charcoal">#1E2530</color>
+    <color name="nav_background">#0B0F17</color>
+
+    <!-- === TEXT === -->
+    <color name="text_primary">#F1F5F9</color>
+    <color name="text_secondary">#9AA6B8</color>
+    <color name="text_disabled">#5C6A7D</color>
+    <color name="slate_text">#9AA6B8</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- === ACCENT / ACTION === -->
+    <color name="accent_primary">#38BDF8</color>
+    <color name="accent_light">#7DD3FC</color>
+    <color name="accent_dark">#0284C7</color>
+    <color name="aegis_blue">#38BDF8</color>
+    <color name="accent_soft">#12263A</color>
+    <color name="accent_glow">#3338BDF8</color>
+
+    <!-- === STATUS / SEMANTIC === -->
+    <color name="status_safe">#34D399</color>
+    <color name="status_warning">#FBBF24</color>
+    <color name="status_danger">#F87171</color>
+    <color name="error_red">#F87171</color>
+    <color name="status_safe_soft">#12281F</color>
+    <color name="status_warning_soft">#2A2410</color>
+    <color name="status_danger_soft">#2A1618</color>
+
+    <!-- === BORDER / DIVIDER (hairline) === -->
+    <color name="border_subtle">#1E2530</color>
+    <color name="border_visible">#2A3341</color>
+
+    <!-- === BOTTOM NAVIGATION === -->
+    <color name="nav_icon_active">#38BDF8</color>
+    <color name="nav_icon_inactive">#5C6A7D</color>
+
+    <!-- === OVERLAY === -->
+    <color name="scrim">#99000000</color>
+
+    <!-- === SYSTEM / MATERIAL REQUIRED === -->
+    <color name="colorPrimary">#38BDF8</color>
+    <color name="colorPrimaryVariant">#0284C7</color>
+    <color name="colorOnPrimary">#0A0E14</color>
+
+    <color name="colorSecondary">#9AA6B8</color>
+    <color name="colorSecondaryVariant">#F1F5F9</color>
+    <color name="colorOnSecondary">#0A0E14</color>
+
+    <color name="colorBackground">#0A0E14</color>
+    <color name="colorOnBackground">#F1F5F9</color>
+
+    <color name="colorSurface">#10151E</color>
+    <color name="colorOnSurface">#F1F5F9</color>
+
+    <color name="colorError">#F87171</color>
+    <color name="colorOnError">#0A0E14</color>
+</resources>

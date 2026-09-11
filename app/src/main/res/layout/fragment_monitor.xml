@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground"
+    android:animateLayoutChanges="true"
+    android:fitsSystemWindows="true">
+
+    <!-- CAMERA (frozen: direct child, hosts FaceOverlayView) -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/cameraPreview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:scaleType="fillCenter" />
+
+    <!-- Top scrim for header legibility -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_top_glossy"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Bottom scrim for control-deck legibility -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:background="@drawable/bg_bottom_glossy"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- ================= HEADER ================= -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="top"
+        android:paddingHorizontal="@dimen/space_20"
+        android:paddingTop="@dimen/space_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/topLeftPanel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/aegis_drive"
+                android:textColor="@color/hud_text"
+                android:textSize="20sp"
+                android:fontFamily="@font/space_grotesk_bold"
+                android:letterSpacing="0.02" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_2"
+                android:text="@string/sensory_intelligence"
+                android:textColor="@color/aegis_blue"
+                android:textAppearance="@style/TextAppearance.Aegis.Label" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/statusOverlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/hud_surface"
+                app:cardCornerRadius="@dimen/radius_pill"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/hud_border"
+                app:strokeWidth="@dimen/stroke_hairline">
+                <TextView
+                    android:id="@+id/tvStatusOverlay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/standby"
+                    android:textColor="@color/hud_text_dim"
+                    android:textAppearance="@style/TextAppearance.Aegis.Label"
+                    android:paddingHorizontal="@dimen/space_12"
+                    android:paddingVertical="@dimen/space_4" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/liveBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_6"
+                app:cardBackgroundColor="#AAEF4444"
+                app:cardCornerRadius="@dimen/radius_pill"
+                app:cardElevation="0dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="@dimen/space_10"
+                    android:paddingVertical="@dimen/space_4">
+                    <View
+                        android:id="@+id/liveDot"
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:background="@android:color/white"
+                        android:layout_marginEnd="@dimen/space_6" />
+                    <TextView
+                        android:id="@+id/tvLiveText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/offline"
+                        android:textColor="#FFFFFF"
+                        android:textAppearance="@style/TextAppearance.Aegis.Label" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ============ TELEMETRY STRIP ============ -->
+    <LinearLayout
+        android:id="@+id/telemetryStrip"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/space_10"
+        android:paddingHorizontal="@dimen/space_20"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvLiveEar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/eye_openness_default"
+            android:textColor="@color/hud_text_dim"
+            android:textSize="10sp"
+            android:fontFamily="monospace" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="10dp"
+            android:background="@color/hud_border"
+            android:layout_marginHorizontal="@dimen/space_8"
+            android:layout_gravity="center_vertical" />
+        <TextView
+            android:id="@+id/tvLiveMar"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/mouth_gap_default"
+            android:textColor="@color/hud_text_dim"
+            android:textSize="10sp"
+            android:fontFamily="monospace" />
+        <TextView
+            android:id="@+id/tvTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_timer"
+            android:textColor="@color/hud_text"
+            android:textSize="12sp"
+            android:fontFamily="monospace" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="10dp"
+            android:background="@color/hud_border"
+            android:layout_marginHorizontal="@dimen/space_8"
+            android:layout_gravity="center_vertical" />
+        <TextView
+            android:id="@+id/tvFPS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_fps"
+            android:textColor="@color/hud_text_dim"
+            android:textSize="10sp"
+            android:fontFamily="monospace" />
+    </LinearLayout>
+
+    <!-- Guideline for the floating danger banner -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.18" />
+
+    <!-- ============ DANGER BANNER (frozen id/type; auto-animates via animateLayoutChanges) ============ -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/warningBanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:cardBackgroundColor="#F0EF4444"
+        app:cardCornerRadius="@dimen/radius_pill"
+        app:cardElevation="@dimen/elevation_float"
+        app:layout_constraintTop_toTopOf="@id/guidelineWarning"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/space_20"
+            android:paddingVertical="@dimen/space_10">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_warning_modern"
+                app:tint="#FFFFFF"
+                android:layout_marginEnd="@dimen/space_10" />
+            <TextView
+                android:id="@+id/tvCriticalWarning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/danger_eyes_closed"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/inter_semibold"
+                android:textSize="14sp"
+                android:letterSpacing="0.02" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ============ MUTE (frozen id/type) ============ -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMuteAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginEnd="@dimen/space_20"
+        android:layout_marginBottom="@dimen/space_12"
+        android:text="@string/mute_alarm"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        android:fontFamily="@font/inter_semibold"
+        android:textAllCaps="false"
+        android:visibility="gone"
+        app:backgroundTint="#EF4444"
+        app:cornerRadius="@dimen/radius_pill"
+        app:elevation="@dimen/elevation_float"
+        app:layout_constraintBottom_toTopOf="@+id/controlDeck"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ============ CONTROL DECK ============ -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/controlDeck"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_20"
+        android:layout_marginBottom="@dimen/space_12"
+        app:cardBackgroundColor="@color/hud_surface_strong"
+        app:cardCornerRadius="@dimen/radius_xl"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/hud_border"
+        app:strokeWidth="@dimen/stroke_hairline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnStopMonitor">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/space_20"
+            android:paddingVertical="@dimen/space_16">
+
+            <!-- Hero: safety score -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:baselineAligned="false">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/telemetry_safety_index"
+                    android:textColor="@color/hud_text_dim"
+                    android:textAppearance="@style/TextAppearance.Aegis.Label" />
+                <TextView
+                    android:id="@+id/tvSafetyScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/full_score"
+                    android:textColor="#34D399"
+                    android:fontFamily="@font/space_grotesk_bold"
+                    android:textSize="26sp" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/pbSafetyScore"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="@dimen/space_8"
+                android:max="100"
+                android:progress="100"
+                android:progressDrawable="@drawable/progress_rounded"
+                android:progressTint="#34D399" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="@dimen/space_16"
+                android:background="@color/hud_border" />
+
+            <!-- Metric row (staggered entrance) -->
+            <LinearLayout
+                android:id="@+id/metricRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:baselineAligned="false"
+                android:layoutAnimation="@anim/layout_animation_stagger">
+
+                <!-- AI Engine -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ai_engine"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textColor="@color/hud_text_dim"
+                        android:textAppearance="@style/TextAppearance.Aegis.Label" />
+                    <TextView
+                        android:id="@+id/tvDetectionIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="–"
+                        android:textColor="@color/hud_text"
+                        android:textSize="20sp"
+                        android:layout_marginTop="@dimen/space_4"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:id="@+id/tvDetectionLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/waiting"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textColor="@color/hud_text"
+                        android:fontFamily="@font/inter_semibold"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/space_8"
+                    android:background="@color/hud_border" />
+
+                <!-- Eye State -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/eye_state"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textColor="@color/hud_text_dim"
+                        android:textAppearance="@style/TextAppearance.Aegis.Label" />
+                    <TextView
+                        android:id="@+id/tvEyeState"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="–"
+                        android:textColor="@color/hud_text"
+                        android:fontFamily="@font/space_grotesk_semibold"
+                        android:textSize="14sp"
+                        android:layout_marginTop="@dimen/space_6"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:id="@+id/tvConfidence"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="–"
+                        android:textColor="@color/aegis_blue"
+                        android:textSize="10sp"
+                        tools:ignore="HardcodedText" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/space_8"
+                    android:background="@color/hud_border" />
+
+                <!-- Alerts -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/alerts"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textColor="@color/hud_text_dim"
+                        android:textAppearance="@style/TextAppearance.Aegis.Label" />
+                    <TextView
+                        android:id="@+id/tvAlertCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#F59E0B"
+                        android:fontFamily="@font/space_grotesk_bold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="@dimen/space_4"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:id="@+id/tvDrowsiness"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stable"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textColor="@color/hud_text_dim"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ============ START / STOP (frozen id/type; Kotlin owns its colors) ============ -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnStopMonitor"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:layout_marginHorizontal="@dimen/space_20"
+        android:layout_marginBottom="@dimen/space_32"
+        android:text="@string/begin_monitoring"
+        android:textSize="15sp"
+        android:fontFamily="@font/inter_semibold"
+        android:textAllCaps="false"
+        android:letterSpacing="0.02"
+        android:textColor="?attr/colorOnPrimary"
+        app:backgroundTint="?attr/colorPrimary"
+        app:cornerRadius="@dimen/radius_md"
+        app:elevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

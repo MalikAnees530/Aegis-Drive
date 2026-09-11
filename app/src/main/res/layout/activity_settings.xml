@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+    <!-- ══ HEADER ══ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/screen_padding"
+        android:paddingTop="@dimen/space_28"
+        android:paddingBottom="@dimen/space_12">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/btnBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:cardCornerRadius="@dimen/radius_md"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/border_subtle"
+            app:strokeWidth="@dimen/stroke_hairline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_back"
+                android:scaleType="centerInside"
+                app:tint="?attr/colorOnSurface" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textAppearance="@style/TextAppearance.Aegis.H2"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_marginEnd="60dp"
+            app:layout_constraintStart_toEndOf="@id/btnBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btnBack"
+            app:layout_constraintBottom_toBottomOf="@id/btnBack" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- SCROLLABLE CONTENT -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/space_48">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/screen_padding"
+            android:focusableInTouchMode="true"
+            android:layoutAnimation="@anim/layout_animation_stagger">
+
+            <!-- ══ HERO PROFILE ══ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/space_16">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="104dp"
+                    android:layout_height="104dp"
+                    app:cardBackgroundColor="@color/accent_soft"
+                    app:cardCornerRadius="52dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/aegis_blue"
+                    app:strokeWidth="2dp">
+                    <ImageView
+                        android:id="@+id/ivProfileAvatar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_person"
+                        app:tint="@color/accent_primary" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/tvProfileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_16"
+                    android:text="Loading..."
+                    android:textAppearance="@style/TextAppearance.Aegis.H2" />
+
+                <TextView
+                    android:id="@+id/tvProfileEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_2"
+                    android:text="Loading..."
+                    android:textAppearance="@style/TextAppearance.Aegis.BodyMuted" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/editBtn"
+                    style="@style/Aegis.Button.Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:text="Edit Profile" />
+
+            </LinearLayout>
+
+            <!-- ══ STATS ══ -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                app:cardBackgroundColor="?attr/colorSurface"
+                app:cardCornerRadius="@dimen/radius_lg"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_subtle"
+                app:strokeWidth="@dimen/stroke_hairline">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="@dimen/space_20"
+                    android:weightSum="3">
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tvStatDriveTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0h" android:textColor="?attr/colorOnSurface" android:fontFamily="@font/space_grotesk_semibold" android:textSize="18sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DRIVE TIME" android:textAppearance="@style/TextAppearance.Aegis.Label" android:layout_marginTop="@dimen/space_4"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="@dimen/stroke_hairline" android:layout_height="28dp" android:background="@color/border_subtle" android:layout_gravity="center_vertical"/>
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tvStatSafety" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="100%" android:textColor="@color/status_safe" android:fontFamily="@font/space_grotesk_semibold" android:textSize="18sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SAFETY" android:textAppearance="@style/TextAppearance.Aegis.Label" android:layout_marginTop="@dimen/space_4"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="@dimen/stroke_hairline" android:layout_height="28dp" android:background="@color/border_subtle" android:layout_gravity="center_vertical"/>
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/tvStatTrips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="?attr/colorOnSurface" android:fontFamily="@font/space_grotesk_semibold" android:textSize="18sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TRIPS" android:textAppearance="@style/TextAppearance.Aegis.Label" android:layout_marginTop="@dimen/space_4"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ══ SECURITY & ALERTS ══ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_28"
+                android:layout_marginBottom="@dimen/space_12"
+                android:text="SECURITY &amp; ALERTS"
+                android:textAppearance="@style/TextAppearance.Aegis.Label" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/colorSurface"
+                app:cardCornerRadius="@dimen/radius_lg"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_subtle"
+                app:strokeWidth="@dimen/stroke_hairline">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_8">
+
+                    <!-- Audible Alerts -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/space_12">
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="@color/bg_elevated"
+                            app:cardCornerRadius="@dimen/radius_sm"
+                            app:cardElevation="0dp"
+                            android:layout_marginEnd="@dimen/space_16">
+                            <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_volume" app:tint="@color/text_secondary" android:layout_gravity="center"/>
+                        </com.google.android.material.card.MaterialCardView>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Audible Alerts" android:textAppearance="@style/TextAppearance.Aegis.Body" android:fontFamily="@font/inter_semibold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Play alarm on drowsiness" android:textAppearance="@style/TextAppearance.Aegis.Caption" />
+                        </LinearLayout>
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switchAlertSound"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="@dimen/stroke_hairline" android:background="@color/border_subtle" android:layout_marginHorizontal="@dimen/space_12"/>
+
+                    <!-- Haptic -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/space_12">
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="@color/bg_elevated"
+                            app:cardCornerRadius="@dimen/radius_sm"
+                            app:cardElevation="0dp"
+                            android:layout_marginEnd="@dimen/space_16">
+                            <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_vibrate" app:tint="@color/text_secondary" android:layout_gravity="center"/>
+                        </com.google.android.material.card.MaterialCardView>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Haptic Feedback" android:textAppearance="@style/TextAppearance.Aegis.Body" android:fontFamily="@font/inter_semibold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Vibrate phone on danger" android:textAppearance="@style/TextAppearance.Aegis.Caption" />
+                        </LinearLayout>
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switchVibration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="@dimen/stroke_hairline" android:background="@color/border_subtle" android:layout_marginHorizontal="@dimen/space_12"/>
+
+                    <!-- Family Notification -->
+                    <LinearLayout
+                        android:id="@+id/rowFamilyNotification"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="64dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/space_12"
+                        android:paddingVertical="@dimen/space_12"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground">
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="@color/bg_elevated"
+                            app:cardCornerRadius="@dimen/radius_sm"
+                            app:cardElevation="0dp"
+                            android:layout_marginEnd="@dimen/space_16">
+                            <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_phone" app:tint="@color/text_secondary" android:layout_gravity="center"/>
+                        </com.google.android.material.card.MaterialCardView>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Family Notification" android:textAppearance="@style/TextAppearance.Aegis.Body" android:fontFamily="@font/inter_semibold" />
+                            <TextView android:id="@+id/tvFamilyContactStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Add emergency contact number" android:textAppearance="@style/TextAppearance.Aegis.Caption" />
+                            <TextView
+                                android:id="@+id/btnEditFamilyContact"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_4"
+                                android:paddingVertical="@dimen/space_2"
+                                android:paddingHorizontal="@dimen/space_4"
+                                android:text="EDIT"
+                                android:textColor="@color/aegis_blue"
+                                android:textAppearance="@style/TextAppearance.Aegis.Label"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?attr/selectableItemBackground"
+                                android:visibility="gone" />
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_chevron_right" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ══ PREFERENCES ══ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_24"
+                android:layout_marginBottom="@dimen/space_12"
+                android:text="PREFERENCES"
+                android:textAppearance="@style/TextAppearance.Aegis.Label" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/colorSurface"
+                app:cardCornerRadius="@dimen/radius_lg"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/border_subtle"
+                app:strokeWidth="@dimen/stroke_hairline">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_8">
+
+                    <!-- Dark Mode -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/space_12">
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="@color/accent_soft"
+                            app:cardCornerRadius="@dimen/radius_sm"
+                            app:cardElevation="0dp"
+                            android:layout_marginEnd="@dimen/space_16">
+                            <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_moon" app:tint="@color/accent_primary" android:layout_gravity="center"/>
+                        </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Dark Mode"
+                            android:textAppearance="@style/TextAppearance.Aegis.Body"
+                            android:fontFamily="@font/inter_semibold" />
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switchDarkMode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="@dimen/stroke_hairline" android:background="@color/border_subtle" android:layout_marginHorizontal="@dimen/space_12"/>
+
+                    <!-- About -->
+                    <LinearLayout
+                        android:id="@+id/rowAbout"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/space_12"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground">
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            app:cardBackgroundColor="@color/bg_elevated"
+                            app:cardCornerRadius="@dimen/radius_sm"
+                            app:cardElevation="0dp"
+                            android:layout_marginEnd="@dimen/space_16">
+                            <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_info" app:tint="@color/text_secondary" android:layout_gravity="center"/>
+                        </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="About AegisDrive"
+                            android:textAppearance="@style/TextAppearance.Aegis.Body"
+                            android:fontFamily="@font/inter_semibold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="v1.1"
+                            android:textAppearance="@style/TextAppearance.Aegis.Caption" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ══ LOG OUT ══ -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/space_28"
+                android:text="Log Out"
+                android:textAllCaps="false"
+                android:textColor="@color/status_danger"
+                android:fontFamily="@font/inter_semibold"
+                app:icon="@drawable/ic_stop_modern"
+                app:iconTint="@color/status_danger"
+                app:iconGravity="textStart"
+                app:strokeColor="@color/status_danger"
+                app:strokeWidth="@dimen/stroke_hairline"
+                app:cornerRadius="@dimen/radius_md"
+                app:rippleColor="@color/status_danger_soft" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:text="Protected by Aegis Driver Intelligence"
+                android:textAppearance="@style/TextAppearance.Aegis.Caption"
+                android:gravity="center" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

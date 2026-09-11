@@ -1,0 +1,17 @@
+# ─────────────────────────────────────────────────────────────
+#  Aegis Drive — local configuration TEMPLATE
+#
+#  Copy this file to `local.properties` and fill in real values.
+#  `local.properties` is gitignored and must NEVER be committed.
+# ─────────────────────────────────────────────────────────────
+
+# Android SDK location (Android Studio usually writes this for you)
+sdk.dir=/path/to/your/Android/Sdk
+
+# Groq API key for the in-app AI assistant — https://console.groq.com/keys
+# Injected into BuildConfig.GROK_API_KEY at build time.
+# CI alternative: set a GROK_API_KEY environment variable or Gradle property.
+GROK_API_KEY=gsk_your_key_here
+
+# NOTE: Firebase config is a separate file — place your own
+# `google-services.json` at `app/google-services.json` (also gitignored).

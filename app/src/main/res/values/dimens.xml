@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============================================ -->
+    <!-- AEGISDRIVE — DESIGN TOKENS · SPACING/SHAPE    -->
+    <!-- ============================================ -->
+
+    <!-- === SPACING SCALE (4pt grid) === -->
+    <dimen name="space_2">2dp</dimen>
+    <dimen name="space_4">4dp</dimen>
+    <dimen name="space_6">6dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+    <dimen name="space_10">10dp</dimen>
+    <dimen name="space_12">12dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+    <dimen name="space_28">28dp</dimen>
+    <dimen name="space_32">32dp</dimen>
+    <dimen name="space_40">40dp</dimen>
+    <dimen name="space_48">48dp</dimen>
+    <dimen name="space_56">56dp</dimen>
+    <dimen name="space_64">64dp</dimen>
+
+    <!-- === SCREEN LAYOUT === -->
+    <dimen name="screen_padding">20dp</dimen>
+    <dimen name="section_gap">24dp</dimen>
+
+    <!-- === CORNER RADII === -->
+    <dimen name="radius_xs">8dp</dimen>
+    <dimen name="radius_sm">10dp</dimen>
+    <dimen name="radius_md">14dp</dimen>
+    <dimen name="radius_lg">18dp</dimen>
+    <dimen name="radius_xl">24dp</dimen>
+    <dimen name="radius_2xl">28dp</dimen>
+    <dimen name="radius_pill">999dp</dimen>
+
+    <!-- === STROKE / ELEVATION === -->
+    <dimen name="stroke_hairline">1dp</dimen>
+    <dimen name="elevation_none">0dp</dimen>
+    <dimen name="elevation_soft">3dp</dimen>
+    <dimen name="elevation_float">10dp</dimen>
+
+    <!-- === COMPONENT SIZES === -->
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="input_height">56dp</dimen>
+    <dimen name="icon_chip">44dp</dimen>
+    <dimen name="touch_target">48dp</dimen>
+
+    <!-- === TYPE SIZES === -->
+    <dimen name="text_display">34sp</dimen>
+    <dimen name="text_h1">26sp</dimen>
+    <dimen name="text_h2">20sp</dimen>
+    <dimen name="text_title">16sp</dimen>
+    <dimen name="text_body">15sp</dimen>
+    <dimen name="text_label">12sp</dimen>
+    <dimen name="text_caption">12sp</dimen>
+</resources>

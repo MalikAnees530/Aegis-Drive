@@ -1,0 +1,39 @@
+# Normalize line endings: LF in the repo, native in the working tree.
+* text=auto
+
+# Explicit text types
+*.kt      text diff=java
+*.java    text diff=java
+*.kts     text
+*.xml     text
+*.json    text
+*.md      text
+*.pro     text
+*.properties text
+*.toml    text
+*.yml     text
+*.yaml    text
+
+# Shell scripts must stay LF or they break on CI
+gradlew   text eol=lf
+*.sh      text eol=lf
+gradlew.bat text eol=crlf
+
+# Binary assets — never diff or normalize these
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.webp    binary
+*.gif     binary
+*.ttf     binary
+*.otf     binary
+*.jar     binary
+*.tflite  binary
+*.task    binary
+*.apk     binary
+*.aab     binary
+*.keystore binary
+*.jks     binary
+
+# Keep vendored web assets out of GitHub's language statistics
+app/src/main/assets/navigate/vendor/** linguist-vendored

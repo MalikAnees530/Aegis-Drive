@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============================================ -->
+    <!-- AEGISDRIVE — PREMIUM MINIMAL · LIGHT PALETTE  -->
+    <!-- ============================================ -->
+
+    <!-- === BACKGROUND / SURFACE === -->
+    <color name="bg_deepest">#FBFCFD</color>
+    <color name="bg_surface">#FFFFFF</color>
+    <color name="bg_elevated">#F4F6F9</color>
+    <color name="bg_navy">#FBFCFD</color>
+    <color name="bg_navy_light">#FFFFFF</color>
+    <color name="charcoal">#EAEEF3</color>
+    <color name="nav_background">#FFFFFF</color>
+
+    <!-- === TEXT === -->
+    <color name="text_primary">#0F1729</color>
+    <color name="text_secondary">#5A6B82</color>
+    <color name="text_disabled">#94A3B8</color>
+    <color name="slate_text">#5A6B82</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- === ACCENT / ACTION === -->
+    <color name="accent_primary">#0EA5E9</color>
+    <color name="accent_light">#7DD3FC</color>
+    <color name="accent_dark">#0369A1</color>
+    <color name="aegis_blue">#0EA5E9</color>
+    <color name="accent_soft">#E0F2FE</color>
+    <color name="accent_glow">#1A0EA5E9</color>
+
+    <!-- === STATUS / SEMANTIC === -->
+    <color name="status_safe">#059669</color>
+    <color name="status_warning">#D97706</color>
+    <color name="status_danger">#DC2626</color>
+    <color name="error_red">#DC2626</color>
+    <color name="status_safe_soft">#DCFCE7</color>
+    <color name="status_warning_soft">#FEF3C7</color>
+    <color name="status_danger_soft">#FEE2E2</color>
+
+    <!-- === BORDER / DIVIDER (hairline) === -->
+    <color name="border_subtle">#EAEEF3</color>
+    <color name="border_visible">#D7DEE7</color>
+
+    <!-- === BOTTOM NAVIGATION === -->
+    <color name="nav_icon_active">#0EA5E9</color>
+    <color name="nav_icon_inactive">#94A3B8</color>
+
+    <!-- === OVERLAY === -->
+    <color name="scrim">#33000000</color>
+
+    <!-- === CAMERA HUD (theme-independent: defined only here, so identical in light & dark) === -->
+    <color name="hud_surface">#D90E1622</color>
+    <color name="hud_text">#F1F5F9</color>
+    <color name="hud_text_dim">#94A3B8</color>
+    <color name="hud_border">#26FFFFFF</color>
+    <color name="hud_surface_strong">#F00A0F1A</color>
+
+    <!-- === SYSTEM / MATERIAL REQUIRED === -->
+    <color name="colorPrimary">#0EA5E9</color>
+    <color name="colorPrimaryVariant">#0369A1</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+
+    <color name="colorSecondary">#5A6B82</color>
+    <color name="colorSecondaryVariant">#1E293B</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+
+    <color name="colorBackground">#FBFCFD</color>
+    <color name="colorOnBackground">#0F1729</color>
+
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorOnSurface">#0F1729</color>
+
+    <color name="colorError">#DC2626</color>
+    <color name="colorOnError">#FFFFFF</color>
+</resources>

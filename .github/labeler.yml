@@ -1,0 +1,20 @@
+# Configuration for actions/labeler
+
+android:
+- 'app/**/*'
+- 'build.gradle.kts'
+- 'settings.gradle.kts'
+
+documentation:
+- '**/*.md'
+- 'docs/**/*'
+
+github:
+- '.github/**/*'
+
+ai-ml:
+- 'app/src/main/assets/*.tflite'
+- 'app/src/main/assets/*.task'
+
+resources:
+- 'app/src/main/res/**/*'
