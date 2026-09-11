@@ -5,13 +5,17 @@
 ### Unified Driver Safety & Navigation — powered by on-device Edge AI
 
 <!--
-  Note on the Android CI badge: while this repository is PRIVATE, GitHub serves
-  actions/.../badge.svg only to authenticated requests, and README images are fetched
-  through GitHub's unauthenticated camo proxy. The badge will therefore show as a broken
-  image until the repository is made public. Build status is always visible on the
-  Actions tab. Nothing is misconfigured - do not "fix" it by removing the badge.
+  Android CI badge - works in BOTH visibility modes, by design:
+    * Repository PUBLIC  -> the live badge image renders with the real build status.
+    * Repository PRIVATE -> GitHub serves badge.svg only to authenticated requests, and
+      README images are fetched through GitHub's unauthenticated camo proxy, so no live
+      badge (GitHub's or shields.io's) can ever render. The alt text below is written to
+      read correctly in that state and stays wrapped in the link, so it degrades to a
+      working "Android CI - build status" link to the Actions tab rather than a broken image.
+  Nothing is misconfigured either way. The remaining badges are static shields.io images,
+  which render in both modes.
 -->
-[![Android CI](https://github.com/MalikAnees530/Aegis-Drive/actions/workflows/android.yml/badge.svg)](https://github.com/MalikAnees530/Aegis-Drive/actions/workflows/android.yml)
+[![Android CI - build status](https://github.com/MalikAnees530/Aegis-Drive/actions/workflows/android.yml/badge.svg)](https://github.com/MalikAnees530/Aegis-Drive/actions/workflows/android.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform](https://img.shields.io/badge/Platform-Android-3DDC84.svg?logo=android&logoColor=white)](https://developer.android.com/about)
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.9+-7F52FF.svg?logo=kotlin&logoColor=white)](https://kotlinlang.org/)

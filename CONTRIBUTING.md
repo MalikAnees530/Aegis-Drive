@@ -68,19 +68,24 @@ As a team member with write access, work directly in this repository:
 
 ## Review policy
 
-The team works to a **hybrid** rule, chosen to keep low-risk work fast while making
-sure no one is the only person who understands a part of the app:
+**Every maintainer has full, equal rights over this repository.** There are no
+gates, no protected branches and no required approvals:
 
-- **Self-merge, once CI is green** — changes confined to `docs/`, `*.md`, or other
-  `chore/` work. No approval needed; merge your own PR.
-- **One approving review from another maintainer** — anything touching `app/src/`
-  or `.github/`. That covers all application code, resources, and CI.
-- **Any maintainer may give that approval.** All four of us are equal owners in
-  [CODEOWNERS](.github/CODEOWNERS), so you are never waiting on one specific person.
-- **`main` must stay green.** Do not merge with failing CI; fix it or revert.
+- **Anyone may merge anything** — including their own pull request, using any
+  merge strategy (merge commit, squash, or rebase).
+- **No approval is required** from anyone, the team lead included.
+- **Direct pushes to `main` are allowed.** Branch-and-PR is the suggested habit
+  because it gives you CI feedback and a place to discuss, not because you are
+  forced into it.
+- **Anyone may edit any file**, including CI workflows, Gradle config and this
+  document.
 
-If a reviewer is unavailable and the change is genuinely blocking, say so on the PR
-and merge — then have it reviewed retrospectively. Shipping beats stalling.
+[CODEOWNERS](.github/CODEOWNERS) lists all four maintainers so GitHub notifies
+the team about pull requests. It is **advisory only** — it requests reviewers,
+it never blocks a merge.
+
+Two courtesies rather than rules: try to keep `main` green, and if you break
+something, say so on the PR or in Discussions so nobody debugs it twice.
 
 ---
 
