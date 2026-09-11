@@ -30,6 +30,12 @@ android {
         versionCode = 1
         versionName = "1.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        // Tests annotated @LiveSms send a REAL SMS to the saved emergency contact.
+        // Keep them out of `connectedAndroidTest` (and Android Studio's "run all tests")
+        // so no one messages a real person by accident. Run them deliberately with:
+        //   adb shell am instrument -w -e class <TestClass> \
+        //       com.malik.aegisdrive.test/androidx.test.runner.AndroidJUnitRunner
+        testInstrumentationRunnerArguments["notAnnotation"] = "com.malik.aegisdrive.LiveSms"
 
         // Load GROK_API_KEY from local.properties first, then Gradle/env fallbacks
         val localProps = Properties().apply {

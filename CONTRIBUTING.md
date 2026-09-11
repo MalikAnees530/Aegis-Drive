@@ -19,8 +19,12 @@ cp local.properties.example local.properties   # then fill in your own values
 You will also need your own `app/google-services.json` from the Firebase console.
 Both files are gitignored — see [Security rules](#security-rules) below.
 
-**Requirements:** Android Studio (Hedgehog+), **JDK 17+** (AGP 8.3 requires it),
-and a device or emulator on **API 26+**.
+**Requirements:** Android Studio (Hedgehog+), **JDK 17 or 21**, and a device or
+emulator on **API 26+**.
+
+> Do **not** use JDK 25. AGP 8.3 needs JDK 17+, but Kotlin 1.9.24 cannot parse Java 25
+> and dies with `IllegalArgumentException: 25.0.3`. Current Android Studio ships a JDK 25
+> JBR, so set Gradle JDK to a 17 or 21 install rather than the bundled one.
 
 Verify your setup builds before you change anything:
 
@@ -64,28 +68,19 @@ As a team member with write access, work directly in this repository:
 
 ## Review policy
 
-<!--
-  TEAM DECISION — please fill this in.
+The team works to a **hybrid** rule, chosen to keep low-risk work fast while making
+sure no one is the only person who understands a part of the app:
 
-  This is a genuine trade-off and it is your team's call, not a technical default:
+- **Self-merge, once CI is green** — changes confined to `docs/`, `*.md`, or other
+  `chore/` work. No approval needed; merge your own PR.
+- **One approving review from another maintainer** — anything touching `app/src/`
+  or `.github/`. That covers all application code, resources, and CI.
+- **Any maintainer may give that approval.** All four of us are equal owners in
+  [CODEOWNERS](.github/CODEOWNERS), so you are never waiting on one specific person.
+- **`main` must stay green.** Do not merge with failing CI; fix it or revert.
 
-  • "Anyone may merge their own PR once CI is green"
-      → fastest; best while you are all building different screens in parallel.
-      → risk: mistakes reach `main` unreviewed right before a demo.
-
-  • "Every PR needs one approval from another maintainer"
-      → catches bugs and spreads knowledge of the codebase across the team,
-        which matters when a supervisor asks any member to explain any part.
-      → risk: someone is blocked waiting if a teammate is unavailable.
-
-  • A hybrid, e.g. "self-merge for docs/ and chore/; one approval for anything
-    touching app/src or .github/".
-
-  Replace this comment with 4–8 lines stating the rule you agree on, and say
-  who may merge to `main`.
--->
-
-_To be agreed by the team — see the note above._
+If a reviewer is unavailable and the change is genuinely blocking, say so on the PR
+and merge — then have it reviewed retrospectively. Shipping beats stalling.
 
 ---
 

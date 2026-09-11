@@ -12,8 +12,11 @@ import java.util.concurrent.atomic.AtomicBoolean
 /**
  * ⚠️ SENDS A REAL SMS TO THE REAL SAVED EMERGENCY CONTACT. ⚠️
  *
- * Deliberately NOT part of [FamilyAlertObserverTest] and deliberately NOT run by default — it is a
- * separate class so it can only execute when named explicitly:
+ * Deliberately NOT part of [FamilyAlertObserverTest]. It is annotated [LiveSms], and
+ * `app/build.gradle.kts` sets `notAnnotation` to that marker, so every Gradle-driven run
+ * — `connectedAndroidTest`, and Android Studio's "run all tests" — skips it. Being a separate
+ * class is NOT by itself enough to exclude it; the filter is what does that. Run it only by
+ * naming it explicitly through adb, which bypasses Gradle:
  *
  *     adb shell am instrument -w -e class com.malik.aegisdrive.LiveEmergencySmsTest \
  *         com.malik.aegisdrive.test/androidx.test.runner.AndroidJUnitRunner
@@ -33,6 +36,7 @@ import java.util.concurrent.atomic.AtomicBoolean
  *  - "Emergency SMS REJECTED by radio: ..."              -> it did NOT go out, with the reason
  */
 @RunWith(AndroidJUnit4::class)
+@LiveSms
 class LiveEmergencySmsTest {
 
     @Test

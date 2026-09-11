@@ -74,6 +74,7 @@ venv/
 # ─────────────────────────────────────────────────────────────
 /md/
 .superpowers/
+docs/superpowers/
 /Errors and problem/
 /Errors/
 /Github images/

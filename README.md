@@ -4,6 +4,13 @@
 
 ### Unified Driver Safety & Navigation — powered by on-device Edge AI
 
+<!--
+  Note on the Android CI badge: while this repository is PRIVATE, GitHub serves
+  actions/.../badge.svg only to authenticated requests, and README images are fetched
+  through GitHub's unauthenticated camo proxy. The badge will therefore show as a broken
+  image until the repository is made public. Build status is always visible on the
+  Actions tab. Nothing is misconfigured - do not "fix" it by removing the badge.
+-->
 [![Android CI](https://github.com/MalikAnees530/Aegis-Drive/actions/workflows/android.yml/badge.svg)](https://github.com/MalikAnees530/Aegis-Drive/actions/workflows/android.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform](https://img.shields.io/badge/Platform-Android-3DDC84.svg?logo=android&logoColor=white)](https://developer.android.com/about)
@@ -72,9 +79,17 @@ Aegis Drive follows a **dark-first "Premium Minimal"** design language — spaci
 
 ## 🚀 Getting Started
 
-**Prerequisites:** Android Studio (Hedgehog or newer), **JDK 17+** — required by Android Gradle Plugin 8.3 — and an Android device/emulator on **API 26+**.
+**Prerequisites:** Android Studio (Hedgehog or newer), **JDK 17 or 21**, and an Android
+device/emulator on **API 26+**.
 
-> The app itself compiles to **Java 11 bytecode** (`jvmTarget = 11`); JDK 17+ is only needed to *run* the Gradle build.
+> **Use JDK 17 or 21 — not 25.** Android Gradle Plugin 8.3 needs at least JDK 17, but
+> Kotlin 1.9.24 cannot parse Java 25 and fails with
+> `java.lang.IllegalArgumentException: 25.0.3`. Recent Android Studio builds bundle a
+> **JDK 25** JBR, so if you point `JAVA_HOME` at the bundled runtime the build will break.
+> Set it to a JDK 17/21 instead (Settings → Build → Gradle → Gradle JDK).
+>
+> The app itself compiles to **Java 11 bytecode** (`jvmTarget = 11`); the JDK above is
+> only needed to *run* Gradle.
 
 ```bash
 git clone https://github.com/MalikAnees530/Aegis-Drive.git
