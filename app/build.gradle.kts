@@ -105,12 +105,12 @@ dependencies {
     implementation("androidx.camera:camera-view:$cameraxVersion")
 
     // TensorFlow Lite Tools
-    implementation("org.tensorflow:tensorflow-lite:2.14.0")
+    implementation("org.tensorflow:tensorflow-lite:2.17.0")
     implementation("org.tensorflow:tensorflow-lite-support:0.4.4")
 
     // 🚀 NEW: MediaPipe Tools (Required for Hybrid LSTM Pipeline)
     implementation("com.google.mediapipe:tasks-vision:0.10.14")
-    implementation("org.tensorflow:tensorflow-lite-select-tf-ops:2.14.0")
+    implementation("org.tensorflow:tensorflow-lite-select-tf-ops:2.17.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
